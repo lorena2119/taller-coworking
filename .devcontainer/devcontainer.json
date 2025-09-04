@@ -1,0 +1,58 @@
+{
+  "name": "Laravel Coworking",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers-extra/features/composer:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "nonFreePackages": true,
+      "username": "vscode"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-pack",
+        "MehediDracula.php-namespace-resolver",
+        "junstyle.php-cs-fixer",
+        "onecentlin.laravel-blade",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "mikestead.dotenv",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "vivaxy.vscode-conventional-commits",
+				"cweijan.vscode-mysql-client2"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.formatOnSave": true,
+        "intelephense.files.maxSize": 5000000,
+        "php.validate.enable": false,
+        "php.executablePath": "/usr/local/bin/php",
+        "php.suggest.basic": false,
+        "files.exclude": {
+          "**/vendor": true,
+          "**/node_modules": true
+        },
+        "search.useIgnoreFiles": false
+      }
+    }
+  },
+  "forwardPorts": [8002, 8026, 6380, 3308],
+  "portsAttributes": {
+    "8002": { "label": "Laravel" },
+    "8026": { "label": "Mailpit UI" },
+    "6380": { "label": "Redis" },
+    "3307": { "label": "MySQL" }
+  },
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "initializeCommand": "",
+  "shutdownAction": "stopCompose"
+}
