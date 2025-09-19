@@ -14,7 +14,7 @@ services:
       - TZ=America/Bogota
       - XDEBUG_MODE=off
     ports:
-      - "8001:8000"
+      - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
